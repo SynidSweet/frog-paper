@@ -1,0 +1,1335 @@
+/* Google Fonts Import for Netflix-style Logo */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&display=swap');
+
+/* App */
+.app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #000;
+  position: relative;
+}
+
+/* Background */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.8);
+  z-index: 1;
+}
+
+/* Palette Container */
+.palette-container {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, color 0.3s ease;
+  width: auto;
+  min-width: fit-content;
+}
+
+.palette-container.dark-theme {
+  background: #1a1a1a;
+  color: white;
+}
+
+/* Main Palette Content */
+.main-palette-content {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  padding: 8px;
+  background: inherit;
+  position: relative;
+  z-index: 2;
+}
+
+.palette-container {
+  cursor: grab;
+}
+
+.palette-container:active {
+  cursor: grabbing;
+}
+
+/* Movie Info */
+.movie-info {
+  padding: 20px 25px;
+  min-width: 200px;
+  width: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  background: inherit;
+}
+
+.movie-title {
+  font-size: 1.5rem;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 250px;
+}
+
+.movie-details {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+.movie-details p {
+  margin: 4px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.movie-details span:first-child {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+.movie-details .value {
+  text-align: right;
+  font-weight: 400;
+}
+
+/* Color Palette */
+.color-palette {
+  display: flex;
+  gap: 0;
+  padding: 0;
+  background: inherit;
+  flex-shrink: 0;
+  transition: width 0.4s ease;
+}
+
+.color-swatch {
+  width: 100px;
+  height: 100%;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.color-swatch:last-child {
+  margin-right: 0;
+}
+
+/* Movie Poster Grid */
+.movie-poster-grid {
+  display: flex;
+  gap: 0;
+  padding: 0;
+  background: inherit;
+}
+
+.movie-poster {
+  width: 100px;
+  height: 100%;
+  cursor: pointer;
+  margin-right: 10px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.movie-poster:last-child {
+  margin-right: 0;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Number Pad */
+.number-pad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: inherit;
+  border-right: 1px solid #e0e0e0;
+  padding: 20px 0;
+  overflow: hidden;
+  width: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.number-pad.show {
+  width: 140px;
+  opacity: 1;
+  padding: 15px 10px;
+}
+
+.palette-container.dark-theme .number-pad {
+  border-right-color: #333;
+}
+
+.number-pad-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  width: 140px;
+}
+
+.number-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 6px;
+  flex: 1;
+}
+
+.number-button {
+  border: 1px solid #ddd;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  user-select: none;
+  min-height: 0;
+}
+
+.number-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: #bbb;
+}
+
+
+.palette-container.dark-theme .number-button {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #555;
+  color: white;
+}
+
+.palette-container.dark-theme .number-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #777;
+}
+
+/* Image Selector */
+.image-selector {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 3px 4px;
+  min-height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.palette-container.dark-theme .image-selector {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.image-selector-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+}
+
+.image-nav-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: all 0.2s;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+}
+
+.image-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.image-nav-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.palette-container.dark-theme .image-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.image-counter {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+/* Premium Movie Search Takeover */
+.movie-search-takeover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.movie-search-container {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Times', 'Times New Roman', serif;
+}
+
+/* Indie Film Header Styling */
+.movie-search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 60px 30px 60px;
+  border-bottom: 1px solid #222;
+  background: #000;
+  position: relative;
+}
+
+.movie-search-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 60px;
+  right: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e50914, transparent);
+}
+
+.movie-search-tabs {
+  display: flex;
+  gap: 40px;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  color: #666;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e50914;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tab.active {
+  color: white;
+}
+
+.tab.active::after {
+  transform: scaleX(1);
+}
+
+.tab:hover:not(.active) {
+  color: #ccc;
+}
+
+/* Header Right Section */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.header-btn {
+  background: transparent;
+  border: 1px solid #333;
+  color: #ccc;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Helvetica Neue', sans-serif;
+  position: relative;
+}
+
+.header-btn:hover {
+  background: #222;
+  border-color: #555;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.select-btn:hover {
+  background: #e50914;
+  border-color: #e50914;
+  color: white;
+}
+
+.playlist-btn:hover {
+  background: #444;
+  border-color: #666;
+}
+
+/* Header Movie Info */
+.header-movie-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 2px;
+}
+
+.header-title {
+  font-size: 28px;
+  font-weight: 300;
+  color: #ffffff;
+  font-family: 'Times', 'Times New Roman', serif;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  max-width: 400px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.header-year {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+  font-family: 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Header Playlist Dropdown */
+.header-playlist-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 4px;
+  min-width: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1001;
+  margin-top: 5px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+  background: transparent;
+  border: 1px solid #333;
+  color: #666;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.close-btn:hover {
+  background: #e50914;
+  border-color: #e50914;
+  color: white;
+  transform: scale(1.1);
+}
+
+.movie-search-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Indie Search Panel */
+.search-panel {
+  width: 30%;
+  padding: 40px 30px;
+  overflow-y: hidden;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-input-container {
+  margin-bottom: 30px;
+  flex-shrink: 0;
+}
+
+.search-input {
+  width: 100%;
+  padding: 20px 24px;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 0;
+  color: white;
+  font-size: 16px;
+  font-family: 'Helvetica Neue', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.search-input:focus {
+  border-color: #e50914;
+  background: #000;
+  box-shadow: 0 0 0 1px #e50914;
+}
+
+.search-input::placeholder {
+  color: #666;
+  font-style: italic;
+}
+
+/* Indie Movie Grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-auto-rows: max-content;  /* Allow rows to size to content */
+  gap: 16px;
+  flex: 1;
+  overflow: visible;  /* Allow content to be visible */
+  align-content: start;
+  min-height: 0;  /* Allow shrinking */
+}
+
+.movie-card {
+  cursor: pointer;
+  border-radius: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  background: #111;
+  border: 1px solid transparent;
+  position: relative;
+}
+
+.movie-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 70%, rgba(229,9,20,0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.movie-card:hover::after {
+  opacity: 1;
+}
+
+.movie-card:hover {
+  border-color: #e50914;
+  box-shadow: 0 0 0 1px #e50914;
+}
+
+.movie-card.selected {
+  border-color: #e50914;
+  box-shadow: 0 0 0 2px #e50914, 0 10px 30px rgba(229,9,20,0.3);
+}
+
+.movie-card .movie-poster {
+  aspect-ratio: 0.675/1;  /* IMDB standard: 1:0.675 ratio (portrait) */
+  overflow: hidden;
+  background: #333;
+  width: 100%;
+  height: auto;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.no-poster {
+  color: #666;
+  font-size: 12px;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Indie Movie Info in Search Cards */
+.movie-card .movie-info {
+  padding: 16px 12px;
+  background: #111;
+}
+
+.movie-card .movie-info h4 {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-family: 'Times', serif;
+  color: #fff;
+}
+
+.movie-card .movie-info p {
+  margin: 0;
+  font-size: 11px;
+  color: #666;
+  font-family: 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #666;
+  padding: 60px 40px;
+  font-size: 14px;
+  font-family: 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+/* Search Pagination */
+.search-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 15px 0;
+  flex-shrink: 0;  /* Don't shrink pagination */
+}
+
+.details-panel {
+  width: 70%;
+  padding: 40px;
+  overflow-y: hidden;
+  background: #0a0a0a;
+}
+
+/* Compact 3-Column Layout */
+.movie-details h2 {
+  margin: 0 0 8px 0;
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  font-family: 'Times', 'Times New Roman', serif;
+}
+
+.movie-year {
+  font-size: 18px;
+  font-weight: 400;
+  color: #888;
+  margin-bottom: 25px;
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* 3-Column Compact Layout */
+.movie-info-grid {
+  display: grid;
+  grid-template-columns: 200px 220px 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding: 20px 0;
+}
+
+/* Column 1: 2x2 Metadata */
+.movie-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 15px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #666;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.meta-value {
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+  font-family: 'Times', serif;
+}
+
+/* Column 2: Crew List (Vertical) */
+.crew-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.crew-member {
+  background: #111;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border-left: 3px solid #e50914;
+}
+
+.crew-role {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #666;
+  margin-bottom: 3px;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.crew-name {
+  font-size: 14px;
+  font-weight: 300;
+  color: #fff;
+  font-family: 'Times', serif;
+}
+
+/* Column 4: Synopsis */
+.movie-synopsis {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Allow shrinking */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.movie-synopsis h3 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #e50914;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.movie-synopsis p {
+  line-height: 1.6;
+  color: #ccc;
+  font-size: 15px;
+  font-weight: 300;
+  font-family: 'Times', serif;
+  font-style: italic;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  white-space: normal;
+  max-width: 100%;
+}
+
+/* Column 1: Movie Title */
+.movie-title-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.movie-title-column h2 {
+  margin: 0 0 8px 0;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  font-family: 'Times', 'Times New Roman', serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  white-space: normal;
+  max-width: 100%;
+  width: 100%;
+}
+
+.movie-title-column .movie-year {
+  font-size: 16px;
+  font-weight: 400;
+  color: #888;
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive Image Gallery Layout */
+.image-preview {
+  margin: 30px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 400px); /* Fit remaining viewport space */
+  min-height: 300px;
+}
+
+.image-preview h3 {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #e50914;
+  font-family: 'Helvetica Neue', sans-serif;
+  flex-shrink: 0;
+}
+
+.image-gallery-container {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.image-main-preview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.image-gallery {
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Fit image, preserve aspect ratio */
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.preview-image:hover {
+  transform: scale(1.02);
+}
+
+/* Color Palette Overlay - Traditional Style */
+.color-palette-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: white;
+  border: none;
+  cursor: grab;
+  z-index: 10;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.color-palette-overlay:active {
+  cursor: grabbing;
+}
+
+.palette-content {
+  padding: 8px;
+  background: inherit;
+}
+
+.palette-swatches {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+}
+
+.palette-swatch-overlay {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border: none;
+  margin-right: 10px;
+  transition: all 0.2s ease;
+}
+
+.palette-swatch-overlay:last-child {
+  margin-right: 0;
+}
+
+.palette-swatch-overlay:hover {
+  transform: scale(1.05);
+}
+
+/* Palette Numpad */
+.palette-numpad {
+  margin-top: 10px;
+}
+
+.palette-numpad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  width: 140px;
+}
+
+.palette-numpad-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  color: #333;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.palette-numpad-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: #bbb;
+  transform: scale(1.05);
+}
+
+.image-controls {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  padding: 12px 20px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid #333;
+}
+
+.image-controls button {
+  background: transparent;
+  border: 1px solid #555;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 15px;
+  transition: all 0.2s;
+}
+
+.image-controls button:hover:not(:disabled) {
+  background: #e50914;
+  border-color: #e50914;
+  transform: scale(1.05);
+}
+
+.image-controls button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.image-counter-display {
+  font-size: 13px;
+  color: #ccc;
+  font-weight: 500;
+  font-family: 'Helvetica Neue', sans-serif;
+  padding: 0 8px;
+}
+
+/* Thumbnail Sidebar */
+.image-thumbnails-sidebar {
+  flex: 1;
+  max-width: 250px;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  background: #111;
+  border-radius: 8px;
+  padding: 15px;
+  overflow: hidden;
+}
+
+
+.image-thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.image-thumbnails::-webkit-scrollbar {
+  width: 4px;
+}
+
+.image-thumbnails::-webkit-scrollbar-track {
+  background: #222;
+  border-radius: 2px;
+}
+
+.image-thumbnails::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 2px;
+}
+
+.image-thumbnails::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+.thumbnail-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 10px 0;
+  border-top: 1px solid #222;
+}
+
+.pagination-btn {
+  background: transparent;
+  border: 1px solid #333;
+  color: #666;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #e50914;
+  border-color: #e50914;
+  color: white;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  font-size: 10px;
+  color: #555;
+  font-family: 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.thumbnail {
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+  border-color: #e50914;
+}
+
+.thumbnail.active {
+  border-color: #e50914;
+  box-shadow: 0 0 0 1px #e50914;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Show Gallery Button */
+.show-gallery-btn {
+  background: #111;
+  border: 1px solid #333;
+  color: #666;
+  padding: 15px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: 200px;
+  flex-shrink: 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.show-gallery-btn:hover {
+  background: #222;
+  border-color: #555;
+  color: #ccc;
+}
+
+.select-movie-btn {
+  background: transparent;
+  border: 2px solid #e50914;
+  color: #e50914;
+  padding: 20px 40px;
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  margin-top: 40px;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-family: 'Helvetica Neue', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.select-movie-btn:hover {
+  background: #e50914;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.3);
+}
+
+.select-movie-btn:active {
+  transform: translateY(0);
+}
+
+/* Movie Actions */
+.movie-actions {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-to-playlist-btn {
+  background: transparent;
+  border: 1px solid #333;
+  color: #ccc;
+  padding: 16px 32px;
+  border-radius: 0;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.add-to-playlist-btn:hover {
+  background: #111;
+  border-color: #555;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.playlist-dropdown {
+  background: #111;
+  border: 1px solid #333;
+  margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.playlist-option {
+  background: transparent;
+  border: none;
+  color: #ccc;
+  padding: 16px 20px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #222;
+  font-family: 'Times', serif;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playlist-option:last-child {
+  border-bottom: none;
+}
+
+.playlist-option:hover {
+  background: #222;
+  color: white;
+}
+
+.playlist-option span {
+  font-size: 11px;
+  color: #666;
+  font-family: 'Helvetica Neue', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Indie Playlists Panel */
+.playlists-panel h3 {
+  margin: 0 0 30px 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #e50914;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.playlist-item {
+  background: #111;
+  border-radius: 0;
+  border: 1px solid #222;
+  padding: 25px 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.playlist-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #e50914;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.playlist-item:hover::before {
+  transform: scaleY(1);
+}
+
+.playlist-item:hover {
+  background: #000;
+  border-color: #333;
+  transform: translateX(5px);
+}
+
+.playlist-item h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+  font-family: 'Times', serif;
+}
+
+.playlist-item p {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+
+
