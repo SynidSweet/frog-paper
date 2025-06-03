@@ -620,56 +620,14 @@ function MovieSearch({ show, onClose, onMovieSelect }) {
                             />
                             
                             {/* Color Palette Overlay */}
-                            {colorPalette.length > 0 && (
-                              <motion.div
-                                className="color-palette-overlay"
-                                drag
-                                dragMomentum={false}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.3 }}
-                              >
-                                <div className="color-swatches">
-                                  {colorPalette.slice(0, 5).map((color, index) => (
-                                    <motion.div
-                                      key={index}
-                                      className="color-swatch"
-                                      style={{ backgroundColor: color }}
-                                      whileHover={{ scale: 1.1 }}
-                                      whileTap={{ scale: 0.9 }}
-                                      onClick={() => handleNumberPad(index + 1)}
-                                    />
-                                  ))}
-                                </div>
-                                
-                                {/* Number Pad */}
-                                <AnimatePresence>
-                                  {showNumpad && (
-                                    <motion.div
-                                      className="numpad-overlay"
-                                      initial={{ opacity: 0, y: 10 }}
-                                      animate={{ opacity: 1, y: 0 }}
-                                      exit={{ opacity: 0, y: 10 }}
-                                      transition={{ duration: 0.2 }}
-                                    >
-                                      <div className="numpad-grid">
-                                        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-                                          <motion.button
-                                            key={num}
-                                            className="numpad-btn"
-                                            onClick={() => handleNumberPad(num)}
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            disabled={num > colorPalette.length}
-                                          >
-                                            {num}
-                                          </motion.button>
-                                        ))}
-                                      </div>
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
-                              </motion.div>
+                            {selectedImageUrl && (
+                              <ColorPalette
+                                imageUrl={selectedImageUrl}
+                                onColorSelect={(color, index) => {
+                                  console.log(`Selected color ${index + 1}: ${color}`)
+                                  // Could add color selection logic here
+                                }}
+                              />
                             )}
                           </motion.div>
                         </motion.div>

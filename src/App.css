@@ -906,11 +906,13 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  background: white;
+  background: #0a0a0a;
   border: none;
   cursor: grab;
   z-index: 10;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
 }
 
 .color-palette-overlay:active {
@@ -920,6 +922,7 @@
 .palette-content {
   padding: 8px;
   background: inherit;
+  position: relative;
 }
 
 .palette-swatches {
@@ -929,11 +932,11 @@
 }
 
 .palette-swatch-overlay {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   cursor: pointer;
   border: none;
-  margin-right: 10px;
+  margin-right: 8px;
   transition: all 0.2s ease;
 }
 
@@ -945,40 +948,6 @@
   transform: scale(1.05);
 }
 
-/* Palette Numpad */
-.palette-numpad {
-  margin-top: 10px;
-}
-
-.palette-numpad-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  width: 140px;
-}
-
-.palette-numpad-btn {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #ddd;
-  color: #333;
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Helvetica Neue', sans-serif;
-}
-
-.palette-numpad-btn:hover {
-  background: rgba(0, 0, 0, 0.05);
-  border-color: #bbb;
-  transform: scale(1.05);
-}
 
 .image-controls {
   position: absolute;
